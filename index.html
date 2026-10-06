@@ -1,28 +1,115 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <!-- head 部分存放给浏览器看的信息（如标题、编码） -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haoran's Homepage</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.7;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .layout {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .sidebar {
+            width: 150px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar ul {
+            padding-left: 20px;
+        }
+
+        .sidebar li {
+            margin-bottom: 12px;
+        }
+
+        main {
+            flex: 1;
+            min-width: 0;
+            display: flow-root;
+        }
+
+        .photo {
+            float: right;
+            width: 600px;
+            max-width: 45%;
+            height: auto;
+            margin: 0 0 20px 25px;
+        }
+
+        h2 {
+            scroll-margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .layout {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+            }
+
+            .photo {
+                float: none;
+                display: block;
+                max-width: 100%;
+                margin: 0 auto 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1 style="text-align: center;">Haoran Shi's Homepage </h1>
-    
-     <img src="./myphoto.png" 
-         alt=""
-         style="float: right; width: 600px; max-width: 100%; height: auto; margin: 20px auto;">
-    <!-- body 部分存放真正显示在网页上的内容 -->
-    
-    <p>Welcome to my homepage! I am currently a PhD based in Sheffield under the supervision of <a href="https://sites.google.com/view/cheuk-yu-mak/home">Cheuk Yu Mak</a>.</p>
-    <p>My research interest is symplectic geometry.</p>
-    <p>Email: hshi37@sheffield.ac.uk</p>
+    <h1 id="top">Haoran Shi's Homepage</h1>
 
-    <h2>Seminars</h2>
-    <p> There is a collection of <a href="./Seminars.html">seminars</a> I attended or organised.
-    <br><br> <!-- 换行 -->
-    
-    <!-- 插入一张图片（src 后面写图片网址或本地路径） -->
-   
+    <div class="layout">
+        <!-- 左侧目录：链接跳到本主页的对应位置 -->
+        <nav class="sidebar" aria-label="Contents">
+            <h2>Contents</h2>
+            <ul>
+                <li><a href="#top">Home</a></li>
+                <li><a href="#seminars">Seminars</a></li>
+                <li><a href="#research">Research</a></li>
+            </ul>
+        </nav>
+
+        <!-- 右侧正文：文字环绕照片 -->
+        <main>
+            <img class="photo" src="./myphoto.png" alt="Haoran Shi 的照片">
+
+            <p>Welcome to my homepage! I am currently a PhD based in Sheffield under the supervision of <a href="https://sites.google.com/view/cheuk-yu-mak/home">Cheuk Yu Mak</a>.</p>
+
+            <p>My research interest is symplectic geometry.</p>
+
+            <p>Email: <a href="mailto:hshi37@sheffield.ac.uk">hshi37@sheffield.ac.uk</a></p>
+
+            <h2 id="seminars">Seminars</h2>
+            <p>There is a collection of <a href="./Seminars.html">seminars</a> I attended or organised.</p>
+
+            <h2 id="research">Research</h2>
+            <!-- 在这里添加今后的研究内容 -->
+        </main>
+    </div>
 </body>
 </html>
